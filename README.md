@@ -1,15 +1,9 @@
 # better_undo
 
-To install dependencies:
+Simple undo/redo typescript library
 
-```bash
-bun install
-```
+## TODO
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.24. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+- [ ] Add CI/CD to publish package
+- [ ] Add max length for undo state
+- [ ] Add a `.has` method to check if a state is already in the state list OR prevent adding to state if contains
