@@ -1,7 +1,7 @@
 {
   "name": "@cblokkeel/better-undo",
   "module": "src/undo.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/undo.js",
   "types": "dist/undo.d.ts",
