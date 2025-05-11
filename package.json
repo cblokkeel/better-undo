@@ -1,0 +1,14 @@
+{
+  "name": "better_undo",
+  "module": "src/undo.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun src/undo.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
