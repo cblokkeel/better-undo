@@ -1,14 +1,33 @@
 {
-  "name": "better_undo",
+  "name": "@cblokkeel/better-undo",
   "module": "src/undo.ts",
+  "version": "0.0.1",
   "type": "module",
+  "main": "dist/undo.js",
+  "types": "dist/undo.d.ts",
   "scripts": {
-    "dev": "bun src/undo.ts"
+    "dev": "bun src/undo.ts",
+    "build:lib": "bun build --target=node ./src/undo.ts --outfile=dist/index.js && bun run build:declaration",
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "^1.2.13"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cblokkeel/better-undo"
+  },
+  "author": "Colin Blokkeel",
+  "license": "MIT",
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ],
+  "publishConfig": {
+    "tag": "next",
+    "access": "public"
   }
 }
