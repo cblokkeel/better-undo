@@ -1,6 +1,16 @@
 import { expect, test } from "bun:test";
 import { UndoRedo } from "../src/undo";
 
+test("add state", () => {
+    const u = new UndoRedo<number>();
+
+    u.add_state(1);
+    u.add_state(2);
+    u.add_state(3);
+
+    expect(u.length).toBe(3);
+});
+
 test("undo", () => {
     const u = new UndoRedo<number>();
 
@@ -8,7 +18,6 @@ test("undo", () => {
     u.add_state(2);
     u.add_state(3);
 
-    expect(u.undo()).toBe(3);
     expect(u.undo()).toBe(2);
     expect(u.undo()).toBe(1);
     expect(u.undo()).toBeUndefined();
@@ -22,7 +31,7 @@ test("redo", () => {
     u.add_state(3);
 
     expect(u.redo()).toBeUndefined();
-    u.undo();
+    expect(u.undo()).toBe(2);
     expect(u.redo()).toBe(3);
 
     u.undo();
@@ -38,8 +47,8 @@ test("adding state after undo", () => {
     u.add_state(2);
     u.add_state(3);
 
-    expect(u.undo()).toBe(3);
     expect(u.undo()).toBe(2);
+    expect(u.undo()).toBe(1);
 
     u.add_state(5);
     // now should look like 1 => 5
